@@ -1,4 +1,3 @@
-
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -15,10 +14,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:WidgetApp(),
+      home: WidgetApp(),
     );
   }
 }
+
 class WidgetApp extends StatefulWidget {
   @override
   _WidgetExampleState createState() => _WidgetExampleState();
@@ -28,38 +28,59 @@ class _WidgetExampleState extends State<WidgetApp> {
   String sum = '';
   TextEditingController value1 = TextEditingController();
   TextEditingController value2 = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Widget Example'),
-      ),
-      body: Container(
-        child: Center(
-          child: Column(
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.all(15),
-                child: Text('Flutter'),
-              ),
-              Padding(
-                padding: EdgeInsets.only(left:20,right: 20),
-              child: TextField(),
-              ),
-              Padding(
-                padding: EdgeInsets.all(15),
-              child : RaisedButton(onPressed: (){
-                    print('버튼클릭');
-              },),
-              ),
-            ],
-          ),
+        appBar: AppBar(
+          title: Text('Widget Example'),
         ),
-      )
-    );
+        body: Container(
+          child: Center(
+            child: Column(
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.all(15),
+                  child: Text('Flutter'),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: 20, right: 20),
+                  child: TextField(),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(15),
+                  child: RaisedButton(
+                    onPressed: () {},
+                    child: Row(
+                      children: <Widget>[
+                        Icon(Icons.add),
+                        Text('더하기'),
+
+                      ],
+                    ),
+                    color: Colors.blue,
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(15),
+                  child: Text(
+                    '결과 : $sum',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(15),
+                  child: TextField(
+                      keyboardType: TextInputType.number, controller: value1),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(15),
+                  child: TextField(
+                      keyboardType: TextInputType.number, controller: value2),
+                )
+              ],
+            ),
+          ),
+        ));
   }
 }
-
-
-
-
